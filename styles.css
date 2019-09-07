@@ -1,0 +1,133 @@
+body, html {
+    height: 100%;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1200px;
+    height: auto;
+  }
+.hero-image{
+    background-image: url("img/whisky2.jpg");
+    height: 70%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.hero-text{
+    text-align: center;
+    padding-top: 12%;
+    color: #b7b3b3;
+    font-size: 70px;
+    text-shadow: 2px 2px 2px #000000;
+}
+.nav {
+    width: 100%;
+    text-align: center;
+    background: black;
+    left: 0;
+    box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, .2);
+}
+.nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 20px;
+}
+.nav ul li .nav-link {
+    text-decoration: none;
+    color: #ccc;
+    padding: 20px;
+}
+
+.nav ul li .nav-link:hover {
+    background: #333;
+    color: #efefef
+}
+.description{
+    width: 75%;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+}
+.blocks {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto 0;
+    margin-top: 50px;
+    text-align: center;
+}
+.block{
+    margin: 10px;
+    height: 250px;
+}
+.block-img h4{
+    color: #b7b3b3;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px #000000;
+}
+.block-img{
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#whisky {
+    background-image: url("img/ardbeg1.jpg");
+}
+#comunity {
+    background-image: url("img/community2.jpg");
+}
+#join {
+    background-image: url("img/team.jpg");
+}
+#visit {
+    background-image: url("img/land.jpg");
+}
+
+footer{
+    display: block;
+    height: 100px;
+    background-color: black;
+    color: white;
+    margin-top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .blocks {
+        grid-template-columns: 1fr;
+    }
+  }
+
+
+  .modal {
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.80); 
+    
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
