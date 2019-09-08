@@ -1,25 +1,45 @@
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+if (document.cookie.split(';').filter((item) => item.trim().startsWith('age=')).length) {
+    console.log('passed')
+    let modal = document.querySelector("#myModal");
+    modal.classList.add("hide");
+}
+// get info from form
+function getInfo() {
+    let day = document.querySelector("#day").value
+    let month = document.querySelector("#month").value
+    let year = document.querySelector("#year").value
+    let dob = year + "/" + month + "/" + day;
+    return dob;
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+// figure out my age
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
 }
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+// check if person is old enough to enter site
+function howOld(){
+    let myAge = getAge(getInfo());
+    console.log(myAge);
+    // change number below to change persons age
+    if(myAge >= 21) {
+        document.cookie = "age=passed; expires=Thu, 18 Dec 2040 12:00:00 UTC";
+       let success = document.querySelector(".success-fail-message");
+       let modal = document.querySelector("#myModal");
+       modal.classList.add("faded");
+       success.innerHTML ="Enjoy!";
+        console.log("Can drink");
+    } else {
+        let fail = document.querySelector(".success-fail-message");
+        let modalBody = document.querySelector(".modal-content");
+       fail.innerHTML ="Sorry I can not let you in";
+        console.log("Cant drink");
+        
+    }
 }

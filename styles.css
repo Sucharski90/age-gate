@@ -11,19 +11,12 @@ body, html {
   }
 .hero-image{
     background-image: url("img/whisky2.jpg");
-    height: 70%;
+    height: 500px;
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-}
-.hero-text{
-    text-align: center;
-    padding-top: 12%;
-    color: #b7b3b3;
-    font-size: 70px;
-    text-shadow: 2px 2px 2px #000000;
 }
 .nav {
     width: 100%;
@@ -81,6 +74,11 @@ body, html {
     align-items: center;
     justify-content: center;
 }
+.block-img:hover{
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+        cursor: pointer;
+}
 #whisky {
     background-image: url("img/ardbeg1.jpg");
 }
@@ -96,22 +94,67 @@ body, html {
 
 footer{
     display: block;
-    height: 100px;
+    height: auto;
     background-color: black;
     color: white;
     margin-top: 30px;
+}
+.foot-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto 0;
+    text-align: center;
+}
+.foot-items h3 {
+    font-size: 25px;
+    font-weight: 100;
+    font-family: cursive;
+    margin: 20px;
+}
+.foot-items p {
+    margin: 5px;
+}
+.foot-items p:hover {
+    color: #777777;
+    cursor: pointer;
+}
+.social-media {
+    text-align: center;
+    padding: 30px 0 50px 0;
+    font-size: 20px;
+}
+.fa-facebook-square:hover{
+    color: #3C5A99;
+}
+.fa-twitter:hover{
+    color: #1DA1F2;
+}
+.fa-youtube:hover{
+    color: #FF0000;
 }
 
 @media only screen and (max-width: 600px) {
     .blocks {
         grid-template-columns: 1fr;
     }
+    .select-row {
+        display: grid;
+    }
+    .foot-items {
+        grid-template-columns: 1fr;
+    }
+  }
+  @media only screen and (min-width: 2560px) {
+    .hero-image {
+        height: 40%;
+    }
   }
 
 
+  /* modal */
   .modal {
     position: fixed; 
-    z-index: 1; 
+    z-index: 1000; 
     padding-top: 100px; 
     left: 0;
     top: 0;
@@ -122,12 +165,79 @@ footer{
     background-color: rgba(0,0,0,0.80); 
     
   }
-  
   /* Modal Content */
   .modal-content {
-    background-color: #fefefe;
+    background-color: #69923478;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    border: 5px solid #fff;
+    width: 50%;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .modal-content h2 {
+    font-family: 'Livvic', sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 18px;
+  }
+  .selectors {
+    font-size: 20px;
+    font-weight: 200;
+}
+.select-row {
+    margin-bottom: 12px;
+}
+.selectors:hover {
+    cursor: pointer;
+}
+.check-btn {
+    border-radius: 20px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: #ffffff00;
+    color: rgb(255, 255, 255);
+    padding: 10px 30px;
+    font-weight: 100;
+    box-shadow: 0 5px #999;
+}
+.check-btn:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+.remember-me-check {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-family: cursive;
+    margin-bottom: 12px;
+}
+.success-fail-message {
+    margin-top: 20px;
+}
+  
+
+  .faded {
+    -webkit-animation-name: fade; /* Safari 4.0 - 8.0 */
+    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+    animation-name: fade;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+  }
+  /* Safari 4.0 - 8.0 */
+@-webkit-keyframes fade {
+    from {opacity: 1; z-index: 1000; }
+    to {opacity: 0; z-index: -500;}
+  }
+  
+  /* Standard syntax */
+  @keyframes fade {
+    from {opacity: 1; z-index: 1000; }
+    to {opacity: 0; z-index: -500;}
+  }
+  
+  .hide{
+      display: none;
   }
