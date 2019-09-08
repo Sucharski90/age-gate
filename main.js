@@ -26,20 +26,24 @@ function getAge(dateString) {
 // check if person is old enough to enter site
 function howOld(){
     let myAge = getAge(getInfo());
-    console.log(myAge);
     // change number below to change persons age
-    if(myAge >= 21) {
+    if(myAge >= 21 && document.querySelector("#rememberMe").checked == true) {
         document.cookie = "age=passed; expires=Thu, 18 Dec 2040 12:00:00 UTC";
+        let success = document.querySelector(".success-fail-message");
+       let modal = document.querySelector("#myModal");
+       modal.classList.add("faded");
+       success.innerHTML ="Enjoy!";
+    }else if(myAge >= 21) {
        let success = document.querySelector(".success-fail-message");
        let modal = document.querySelector("#myModal");
        modal.classList.add("faded");
        success.innerHTML ="Enjoy!";
-        console.log("Can drink");
     } else {
         let fail = document.querySelector(".success-fail-message");
         let modalBody = document.querySelector(".modal-content");
        fail.innerHTML ="Sorry I can not let you in";
-        console.log("Cant drink");
         
     }
 }
+
+
