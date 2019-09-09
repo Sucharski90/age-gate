@@ -4,6 +4,45 @@ if (document.cookie.split(';').filter((item) => item.trim().startsWith('age=')).
     let modal = document.querySelector("#myModal");
     modal.classList.add("hide");
 }
+// auto populate fields
+// generate days of month
+for(x = 1; x <= 31; x++) {
+    var optn = document.createElement("OPTION");
+    optn.text = x;
+    optn.value = x;
+    
+    if (x == 1) {
+        optn.selected = true;
+    }
+    document.getElementById('day').options.add(optn);
+}
+// generate years
+for(y = 1950; y <= 2035; y++) {
+    var optn = document.createElement("OPTION");
+    optn.text = y;
+    optn.value = y;
+    
+    document.getElementById('year').options.add(optn);
+// generate months
+}var d = new Date();
+var monthArray = new Array();
+monthArray[0] = "January";
+monthArray[1] = "February";
+monthArray[2] = "March";
+monthArray[3] = "April";
+monthArray[4] = "May";
+monthArray[5] = "June";
+monthArray[6] = "July";
+monthArray[7] = "August";
+monthArray[8] = "September";
+monthArray[9] = "October";
+monthArray[10] = "November";
+monthArray[11] = "December";
+for(m = 0; m <= 11; m++) {
+    var optn = document.createElement("OPTION");
+    optn.text = monthArray[m];
+    optn.value = (m+1);   document.getElementById('month').options.add(optn);
+}
 // get info from form
 function getInfo() {
     let day = document.querySelector("#day").value
