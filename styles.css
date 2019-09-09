@@ -18,6 +18,13 @@ body, html {
     background-size: cover;
     position: relative;
 }
+.hero-text{
+    text-align: center;
+    padding-top: 12%;
+    color: #b7b3b3;
+    font-size: 70px;
+    text-shadow: 2px 2px 2px #000000;
+}
 .nav {
     width: 100%;
     text-align: center;
@@ -142,6 +149,9 @@ footer{
     }
     .foot-items {
         grid-template-columns: 1fr;
+    }
+    .hero-text{
+        font-size: 40px;
     }
   }
   @media only screen and (min-width: 2560px) {
