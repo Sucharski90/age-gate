@@ -1,3 +1,4 @@
+// checking for cookies
 if (document.cookie.split(';').filter((item) => item.trim().startsWith('age=')).length) {
     console.log('passed')
     let modal = document.querySelector("#myModal");
@@ -11,7 +12,6 @@ function getInfo() {
     let dob = year + "/" + month + "/" + day;
     return dob;
 }
-
 // figure out my age
 function getAge(dateString) {
     var today = new Date();
@@ -23,27 +23,25 @@ function getAge(dateString) {
     }
     return age;
 }
-// check if person is old enough to enter site
+// check if person is old enough to enter site if yes fade will be added to the modal and it will be removed from the site, if yes and remember me is checked a cookie will be created and saved as well as the fade class being added to the modal, if no then the user can not enter the site
 function howOld(){
     // Change testAge value to change age to pass test
     let testAge = 21;
     let myAge = getAge(getInfo());
-    // change number below to change persons age
+    let successFail = document.querySelector(".success-fail-message");
+    let modal = document.querySelector("#myModal");
+    // check users age and if remember me is clicked if yes create cookie and let user in
     if(myAge >= testAge && document.querySelector("#rememberMe").checked == true) {
         document.cookie = "age=passed; expires=Thu, 18 Dec 2040 12:00:00 UTC";
-        let success = document.querySelector(".success-fail-message");
-       let modal = document.querySelector("#myModal");
        modal.classList.add("faded");
-       success.innerHTML ="Enjoy!";
+       successFail.innerHTML ="Enjoy!";
+    //    let user in if old enough but do not create cookie because remember me is not clicked
     }else if(myAge >= testAge) {
-       let success = document.querySelector(".success-fail-message");
-       let modal = document.querySelector("#myModal");
        modal.classList.add("faded");
-       success.innerHTML ="Enjoy!";
+       successFail.innerHTML ="Enjoy!";
+    //    user is not old enough
     } else {
-        let fail = document.querySelector(".success-fail-message");
-        let modalBody = document.querySelector(".modal-content");
-       fail.innerHTML ="Sorry I can not let you in";
+        successFail.innerHTML ="Sorry I can not let you in";
         
     }
 }
