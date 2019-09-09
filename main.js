@@ -25,15 +25,17 @@ function getAge(dateString) {
 }
 // check if person is old enough to enter site
 function howOld(){
+    // Change testAge value to change age to pass test
+    let testAge = 21;
     let myAge = getAge(getInfo());
     // change number below to change persons age
-    if(myAge >= 21 && document.querySelector("#rememberMe").checked == true) {
+    if(myAge >= testAge && document.querySelector("#rememberMe").checked == true) {
         document.cookie = "age=passed; expires=Thu, 18 Dec 2040 12:00:00 UTC";
         let success = document.querySelector(".success-fail-message");
        let modal = document.querySelector("#myModal");
        modal.classList.add("faded");
        success.innerHTML ="Enjoy!";
-    }else if(myAge >= 21) {
+    }else if(myAge >= testAge) {
        let success = document.querySelector(".success-fail-message");
        let modal = document.querySelector("#myModal");
        modal.classList.add("faded");
