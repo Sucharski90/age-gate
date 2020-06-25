@@ -45,10 +45,14 @@ for(m = 0; m <= 11; m++) {
 }
 // get info from form
 function getInfo() {
+    let successFail = document.querySelector(".success-fail-message");
     let day = document.querySelector("#day").value
     let month = document.querySelector("#month").value
     let year = document.querySelector("#year").value
     let dob = year + "/" + month + "/" + day;
+    if(month == ""){
+        return
+    }
     return dob;
 }
 // figure out my age
